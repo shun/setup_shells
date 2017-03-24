@@ -23,14 +23,14 @@ sudo apt-get install golang
 if [ x"$GOROOT" == "x" ]; then
     s1=<<\
 "EOS"
-export GOROOT=$HOME/.go
-export GOPATH=/usr/local/go
+export GOPATH=$HOME/.go
+export GOROOT=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 EOS
     echo $s1 >> ~/.bashrc
 fi
 
-GOVER=
+GOVER=1.8
 
 if [ x"$GOVER" == "x" ]; then
     echo "Please put the golang version."

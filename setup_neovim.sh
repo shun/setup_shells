@@ -8,7 +8,7 @@ sudo apt-get install -y \
     python-dev \
     python-pip \
     python3-dev \
-    python3-pip
+    python3-pip \
 
 pip install -U pip
 pip3 install -U pip
@@ -39,7 +39,8 @@ if [ x"$GOVER" == "x" ]; then
 fi
 
 wget https://storage.googleapis.com/golang/go$GOVER.linux-amd64.tar.gz -O /tmp/go.gz
-sudo mv /tmp/go /usr/local
+unzip /tmp/go.gz
+sudo mv go /usr/local
 
 go get -u github.com/constabulary/gb/...
 go get -u github.com/nsf/gocode

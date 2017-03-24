@@ -11,21 +11,5 @@ sudo apt-get install -y git
 sudo apt-get install -y tig
 sudo apt-get install -y ruby
 sudo apt-get install -y fish
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-sudo apt-get install -y 
-
-git clone git@github.com:powerline/fonts.git ~/workspace/gitrepo/fonts
 
 

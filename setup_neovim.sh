@@ -39,7 +39,7 @@ if [ x"$GOVER" == "x" ]; then
 fi
 
 wget https://storage.googleapis.com/golang/go$GOVER.linux-amd64.tar.gz -O /tmp/go.gz
-unzip /tmp/go.gz
+tar -zxvf /tmp/go.gz
 sudo mv go /usr/local
 
 go get -u github.com/constabulary/gb/...

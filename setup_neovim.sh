@@ -26,7 +26,7 @@ if [ x"$GOROOT" == "x" ]; then
 "EOS"
 export GOPATH=$HOME/.go
 export GOROOT=/usr/local/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 EOS
     echo $s1 >> ~/.bashrc
 fi

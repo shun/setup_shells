@@ -42,6 +42,8 @@ wget https://storage.googleapis.com/golang/go$GOVER.linux-amd64.tar.gz -O /tmp/g
 tar -zxvf /tmp/go.gz
 sudo mv go /usr/local
 
+GOPATH=$HOME/.go
+PATH=$PATH:/usr/local/go/bin
 go get -u github.com/constabulary/gb/...
 go get -u github.com/nsf/gocode
 

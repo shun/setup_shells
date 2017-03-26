@@ -13,5 +13,5 @@ sudo apt-get install -y \
     ruby \
     fish \
     curl \
-    wget\ 
+    wget \
     clang

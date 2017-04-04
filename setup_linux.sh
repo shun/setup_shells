@@ -14,4 +14,5 @@ sudo apt-get install -y \
     fish \
     curl \
     wget \
-    clang
+    clang \
+    openssh-server

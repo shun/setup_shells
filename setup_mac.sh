@@ -35,3 +35,6 @@ brew install wget
 
 pip3 install neovim
 
+# install rust lang
+curl https://sh.rustup.rs -sSf | sh
+

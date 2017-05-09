@@ -16,3 +16,11 @@ sudo apt-get install -y \
     wget \
     clang \
     openssh-server
+
+if [ !-e $HOME/workspace/gitrepo/gitprompt ]; then
+    mkdir -p $HOME/workspace/gitrepo/gitprompt
+fi
+
+wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/workspace/gitrepo/gitprompt/git-completion.bash
+wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/workspace/gitrepo/gitprompt/git-prompt.sh
+

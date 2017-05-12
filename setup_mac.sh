@@ -33,8 +33,17 @@ brew install python3
 brew install pt
 brew install wget
 pip3 install neovim
-brew install npm
 
 # install rust lang
 curl https://sh.rustup.rs -sSf | sh
+
+# install nodejs, typescript
+brew install npm
+sudo npm install -g typescript
+
+# install rust lang
+curl https://sh.rustup.rs -sSf | sh
+source $HOME/.cargo/env
+cargo install rustfmt
+cargo install racer
 

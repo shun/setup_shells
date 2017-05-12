@@ -21,8 +21,8 @@ if [ ! $? = 0 ]; then
     # install fisher
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
 fi
-brew install fish
 
+brew install fish
 brew install go
 brew install llvm
 brew tap neovim/homebrew-neovim
@@ -32,8 +32,8 @@ brew install peco
 brew install python3
 brew install pt
 brew install wget
-
 pip3 install neovim
+brew install npm
 
 # install rust lang
 curl https://sh.rustup.rs -sSf | sh

@@ -39,7 +39,7 @@ curl https://sh.rustup.rs -sSf | sh
 
 # install nodejs, typescript
 brew install npm
-npm install -g typescript
+sudo npm install -g typescript
 
 # install rust lang
 curl https://sh.rustup.rs -sSf | sh

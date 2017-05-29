@@ -15,6 +15,7 @@ sudo apt-get install -y \
     curl \
     wget \
     clang \
+    xsel \
     openssh-server \
     npm \
     nodejs \

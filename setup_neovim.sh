@@ -31,7 +31,7 @@ EOS
     echo $s1 >> ~/.bashrc
 fi
 
-GOVER=1.8
+GOVER=1.8.3
 
 if [ x"$GOVER" == "x" ]; then
     echo "Please put the golang version."

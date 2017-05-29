@@ -10,10 +10,10 @@ sudo apt-get install -y \
     python3-dev \
     python3-pip \
 
-pip install -U pip
-pip3 install -U pip
-pip install neovim
-pip3 install neovim
+sudo pip install -U pip
+sudo pip3 install -U pip
+sudo pip install neovim
+sudo pip3 install neovim
 
 # 
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh

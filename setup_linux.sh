@@ -17,7 +17,8 @@ sudo apt-get install -y \
     clang \
     openssh-server \
     npm \
-    nodejs
+    nodejs \
+    openjdk-8-jdk-headless
 
 if [ !-e $HOME/workspace/gitrepo/gitprompt ]; then
     mkdir -p $HOME/workspace/gitrepo/gitprompt

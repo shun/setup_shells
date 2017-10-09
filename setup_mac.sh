@@ -38,7 +38,9 @@ brew install \
     cmake \
     curl \
     git \
+    global --wigh-pygments \
     go \
+    gnu-erd \
     highlight \
     llvm \
     neovim \

@@ -7,14 +7,16 @@ which brew
 echo $?
 if [ ! $? -eq 1 ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+    ln -fs /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
 fi
 
-sudo apt install build-essential xsel
+sudo apt install build-essential xsel dconf-cli
 
 brew install \
     boost \
     cmake \
+    ctags \
     curl \
     git \
     global --wigh-pygments \
@@ -34,6 +36,7 @@ brew install \
 pip3 install -U pip
 pip3 install neovim
 pip3 install neovim-remote
+npm install -g neovim
 
 if [ ! -e $HOME/workspace/gitrepo/gitprompt ]; then
     mkdir -p $HOME/workspace/gitrepo/gitprompt

@@ -12,6 +12,7 @@ if [ ! $? -eq 1 ]; then
 fi
 
 sudo apt install build-essential xsel dconf-cli
+wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt
 
 brew install \
     boost \

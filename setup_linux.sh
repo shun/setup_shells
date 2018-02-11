@@ -4,14 +4,14 @@ if [ ! -e ~/workspace  ]; then
 fi
 
 which brew
-echo $?
 if [ ! $? -eq 1 ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
     ln -fs /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
 fi
 
-sudo apt install build-essential xsel dconf-cli
+sudo apt install -y build-essential xsel dconf-cli
+# elementary theme
 wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt
 
 brew install \
@@ -47,23 +47,26 @@ wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bas
 wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/workspace/gitrepo/gitprompt/git-prompt.sh
 
 # install docker-ce
-sudo aptremove docker docker-engine docker.io
-sudo apt update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt remove docker docker-engine docker.io
+sudo apt update -y
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 sudo apt update -y
-sudo apt install docker-ce
+sudo apt install -y docker-ce
 
-#install paper icon theme
+# install paper icon theme
 sudo add-apt-repository ppa:snwh/pulp
-sudo apt update
+sudo apt update -y
 sudo apt install -y paper-icon-theme
 sudo apt install -y paper-icon-theme paper-cursor-theme paper-gtk-theme
 
-#install arc-thme
+# install arc-thme
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
-sudo apt-get update
+wget -nv https://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key -O /tmp/Release.key
+sudo apt-key add - < /tmp/Release.key
+sudo apt update
+sudo apt install -y arc-theme
 

@@ -10,7 +10,12 @@ if [ ! $? -eq 1 ]; then
     ln -fs /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
 fi
 
-sudo apt install -y build-essential xsel dconf-cli
+sudo apt install -y \
+    build-essential \
+    xsel \
+    dconf-cli \
+    tilix \
+
 # elementary theme
 wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt
 

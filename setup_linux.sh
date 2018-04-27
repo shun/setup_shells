@@ -13,6 +13,7 @@ fi
 sudo apt install -y \
     build-essential \
     dconf-cli \
+    gparted \
     fcitx \
     fcitx-mozc \
     tilix \

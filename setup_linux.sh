@@ -12,9 +12,11 @@ fi
 
 sudo apt install -y \
     build-essential \
-    xsel \
     dconf-cli \
+    fcitx \
+    fcitx-mozc \
     tilix \
+    xsel \
 
 # elementary theme
 wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt

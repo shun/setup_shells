@@ -27,6 +27,7 @@ brew install \
     cmake \
     ctags \
     curl \
+    docker-compose \
     git \
     global --wigh-pygments \
     go \

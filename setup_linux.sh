@@ -46,6 +46,7 @@ brew install \
 pip3 install -U pip
 pip3 install neovim
 pip3 install neovim-remote
+pip3 install powerline-shell
 npm install -g neovim
 
 if [ ! -e $HOME/workspace/gitrepo/gitprompt ]; then

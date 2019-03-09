@@ -1,58 +1,47 @@
-if [ ! -e ~/workspace  ]; then
-    mkdir -p ~/workspace/gitrepo
-    mkdir -p ~/workspace/dev
-fi
+#!/bin/bash
+set -e
 
-which brew
-if [ ! $? -eq 1 ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-    ln -fs /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
-fi
+# add google chrome repository
+curl https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 
-sudo apt install -y \
-    build-essential \
-    dconf-cli \
-    gparted \
-    fcitx \
-    fcitx-mozc \
-    tilix \
-    xsel \
+apt update && apt upgrade -y && \
+apt install -y \
+	build-essential \
+	ctags \
+	curl \
+	fcitx-mozc \
+	fonts-noto-* \
+	git \
+	global \
+	google-chrome-stable \
+	gparted \
+	golang \
+	htop \
+	i3 \
+	openssh-server \
+	python3 \
+	python3-pip \
+	tig \
+	tmux \
+	vim \
+	wget \
+	xsel \
 
-# elementary theme
-wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt
+# install pt
+go get -u github.com/monochromegane/the_platinum_searcher/...
 
-brew install \
-    boost \
-    cmake \
-    ctags \
-    curl \
-    docker-compose \
-    git \
-    global --wigh-pygments \
-    go \
-    highlight \
-    llvm \
-    neovim \
-    p7zip \
-    peco \
-    pt \
-    python3 \
-    ranger \
-    tig \
-    npm \
-    wget
+# install peco
+PECO_VER=v0.5.3
+curl -L https://github.com/peco/peco/releases/download/v0.5.3/peco_linux_amd64.tar.gz | tar -zxv -C ~/.local/bin/ && mv ~/.local/bin/peco_linux_amd64/peco ~/.local/bin/ && rm -rf ~/.local/bin/peco_linux_amd64/
 
-pip3 install -U pip
-pip3 install neovim
-pip3 install neovim-remote
-pip3 install powerline-shell
-npm install -g neovim
+# setup docker
+curl -L https://raw.githubusercontent.com/shun/ubuntu-docker-setup/master/install_docker.sh | sudo bash
+python3 -m pip install docker-compose
+CTOP_VER=0.7.2
+wget https://github.com/bcicen/ctop/releases/download/v$CTOP_VER/ctop-$CTOP_VER-linux-amd64 -O ~/.local/bin/ctop
+gpasswd -a kudo docker
 
-if [ ! -e $HOME/workspace/gitrepo/gitprompt ]; then
-    mkdir -p $HOME/workspace/gitrepo/gitprompt
-fi
-
-wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/workspace/gitrepo/gitprompt/git-completion.bash
-wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/workspace/gitrepo/gitprompt/git-prompt.sh
+chmod -R a+x ~/.local/bin/
+chown -R kudo:kudo ~/.local/bin/
 

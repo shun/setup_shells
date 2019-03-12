@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 
-# add google chrome repository
+# google chrome
 which google-chrome-stable > /dev/null #2&>1
 if [ $? -ne 0 ]; then
 	curl https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 	echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 fi
 
-# add dbeaver-ce repository
+# dbeaver-ce
 which dbeaver-ce > /dev/null #2&>1
 if [ $? -ne 0 ]; then
 	curl https://dbeaver.io/debs/dbeaver.gpg.key | apt-key add -
@@ -17,6 +17,9 @@ fi
 
 # paper-icon-theme
 add-apt-repository -y -u ppa:snwh/ppa
+
+# neovim
+add-apt-repository ppa:neovim-ppa/stable
 
 apt update && apt upgrade -y && \
 apt install -y \
@@ -34,6 +37,7 @@ apt install -y \
 	golang \
 	htop \
 	i3 \
+	neovim \
 	openssh-server \
 	paper-icon-theme \
 	python3 \
@@ -61,6 +65,9 @@ python3 -m pip install docker-compose
 CTOP_VER=0.7.2
 wget https://github.com/bcicen/ctop/releases/download/v$CTOP_VER/ctop-$CTOP_VER-linux-amd64 -O ~/.local/bin/ctop
 gpasswd -a kudo docker
+
+# neovim
+python3 -m pip install neovim
 
 chmod -R a+x ~/.local/bin/
 chown -R kudo:kudo ~/.local/bin/

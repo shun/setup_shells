@@ -8,6 +8,13 @@ if [ $? -ne 0 ]; then
 	echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
 fi
 
+# add dbeaver-ce repository
+which dbeaver-ce > /dev/null #2&>1
+if [ $? -ne 0 ]; then
+	curl https://dbeaver.io/debs/dbeaver.gpg.key | apt-key add -
+	echo "deb https://dbeaver.io/debs/dbeaver-ce /" | tee /etc/apt/sources.list.d/dbeaver.list
+fi
+
 # paper-icon-theme
 add-apt-repository -y -u ppa:snwh/ppa
 
@@ -17,6 +24,7 @@ apt install -y \
 	build-essential \
 	ctags \
 	curl \
+	dbeaver-ce \
 	fcitx-mozc \
 	fonts-noto-* \
 	git \

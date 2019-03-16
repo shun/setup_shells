@@ -71,5 +71,5 @@ gpasswd -a kudo docker
 python3 -m pip install neovim
 
 chmod -R a+x ~/.local/bin/
-chown -R kudo:kudo ~/.local/bin/
+chown -R $USER:$USER ~/.local/bin/
 

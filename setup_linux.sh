@@ -65,7 +65,7 @@ curl -L https://raw.githubusercontent.com/shun/ubuntu-docker-setup/master/instal
 python3 -m pip install docker-compose
 CTOP_VER=0.7.2
 wget https://github.com/bcicen/ctop/releases/download/v$CTOP_VER/ctop-$CTOP_VER-linux-amd64 -O ~/.local/bin/ctop
-gpasswd -a kudo docker
+gpasswd -a $USER docker
 
 # neovim
 python3 -m pip install neovim

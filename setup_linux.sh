@@ -48,7 +48,7 @@ apt install -y \
 	xsel \
 
 if [ ! -e ~/.local/bin ]; then
-	mkdir ~/.local/bin
+	mkdir -p ~/.local/bin
 fi
 
 # install pt

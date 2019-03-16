@@ -56,8 +56,8 @@ go get -u github.com/monochromegane/the_platinum_searcher/...
 
 # install peco
 PECO_VER=v0.5.3
-curl -L https://github.com/peco/peco/releases/download/v0.5.3/peco_linux_amd64.tar.gz | tar -zxv -C ~/.local/bin/ && \
-	mv ~/.local/bin/peco_linux_amd64/peco ~/.local/bin/ \
+curl -L https://github.com/peco/peco/releases/download/v0.5.3/peco_linux_amd64.tar.gz | tar -zxv -C ~/.local/bin/ \
+	&& mv ~/.local/bin/peco_linux_amd64/peco ~/.local/bin/ \
 	&& rm -rf ~/.local/bin/peco_linux_amd64/
 
 # setup docker

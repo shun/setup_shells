@@ -47,3 +47,7 @@ PATH=$PATH:/usr/local/go/bin
 go get -u github.com/constabulary/gb/...
 go get -u github.com/nsf/gocode
 
+##!/bin/bash
+#set -eu
+#
+#curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz | tar -zxf - --strip=1 -C /usr/local/

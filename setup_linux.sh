@@ -33,7 +33,7 @@ setup_as_root() {
             vim \
             xsel \
         && add-apt-repository ppa:git-core/ppa -y \
-        && curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | bash -
+        && curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | bash - \
         && apt update \
         && apt install -y \
             git \

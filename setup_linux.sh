@@ -1,58 +1,64 @@
-if [ ! -e ~/workspace  ]; then
-    mkdir -p ~/workspace/gitrepo
-    mkdir -p ~/workspace/dev
-fi
+#!/bin/bash
+set -eu
 
-which brew
-if [ ! $? -eq 1 ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-    ln -fs /home/linuxbrew/.linuxbrew $HOME/.linuxbrew
-fi
+CLANG_VER=11
+GO_VER=1.15.7
+NODE_VER=15
 
-sudo apt install -y \
-    build-essential \
-    dconf-cli \
-    gparted \
-    fcitx \
-    fcitx-mozc \
-    tilix \
-    xsel \
+setup_as_root() {
+    sudo bash -c "apt update \
+        && apt upgrade -y \
+        && apt install -y \
+            bash-completion \
+            build-essential \
+            cmake \
+            curl \
+            clang-${CLANG_VER} \
+            clang-format-${CLANG_VER} \
+            clangd-${CLANG_VER} \
+            docker-compose \
+            fcitx \
+            fcitx-mozc \
+            gcc \
+            global \
+            htop \
+            jq \
+            make \
+            python3 \
+            python3-pip \
+            ripgrep \
+            tig \
+            tilix \
+            tmux \
+            vim \
+            xsel \
+        && add-apt-repository ppa:git-core/ppa -y \
+        && curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | bash -
+        && apt update \
+        && apt install -y \
+            git \
+            nodejs \
+        && npm install --global yarn \
+        && curl -L https://golang.org/dl/go${GO_VER}.linux-amd64.tar.gz | tar -zxf - -C /usr/local \
+        && curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz | tar -zxf - --strip=1 -C /usr/local/ \
+        && pip3 install -U pynvim
+    "
+}
 
-# elementary theme
-wget -O xt  http://git.io/v3D8e && chmod +x xt && ./xt && rm xt
+setup_as_user() {
+    /usr/local/go/bin/go get github.com/x-motemen/ghq \
+        && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+        && ~/.fzf/install --all \
+        && ~/go/bin/ghq get git@github.com:shun/dotconfig.git \
+        && mkdir -p ~/workspace/dev \
+        && yarn global add \
+            eslint \
+            eslint-config-prettier \
+            prettier \
+            ts-node \
+            typescript \
+            typesync
+    }
 
-brew install \
-    boost \
-    cmake \
-    ctags \
-    curl \
-    docker-compose \
-    git \
-    global --wigh-pygments \
-    go \
-    highlight \
-    llvm \
-    neovim \
-    p7zip \
-    peco \
-    pt \
-    python3 \
-    ranger \
-    tig \
-    npm \
-    wget
-
-pip3 install -U pip
-pip3 install neovim
-pip3 install neovim-remote
-pip3 install powerline-shell
-npm install -g neovim
-
-if [ ! -e $HOME/workspace/gitrepo/gitprompt ]; then
-    mkdir -p $HOME/workspace/gitrepo/gitprompt
-fi
-
-wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -O $HOME/workspace/gitrepo/gitprompt/git-completion.bash
-wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -O $HOME/workspace/gitrepo/gitprompt/git-prompt.sh
-
+setup_as_root
+setup_as_user

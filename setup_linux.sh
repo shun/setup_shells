@@ -58,7 +58,19 @@ setup_as_user() {
             ts-node \
             typescript \
             typesync
-    }
+}
+
+setup_x2go() {
+    sudo bash -c "apt update \
+        && apt install -y software-properties-common \
+        && add-apt-repository ppa:x2go/stable \
+        && apt update \
+        && apt install -y \
+            x2goserver \
+            x2goserver-xsession
+    "
+}
 
 setup_as_root
 setup_as_user
+setup_x2go

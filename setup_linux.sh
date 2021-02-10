@@ -26,6 +26,7 @@ setup_as_root() {
             make \
             python3 \
             python3-pip \
+            python3-venv \
             ripgrep \
             tig \
             tilix \
